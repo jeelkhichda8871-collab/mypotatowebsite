@@ -1,0 +1,493 @@
+
+/* General styling */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #fff6f8;
+    color: #70485b;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+}
+
+h1, h2, h3 {
+    font-family: 'Pacifico', cursive;
+    font-weight: normal;
+}
+
+section {
+    padding: 65px 20px;
+    text-align: center;
+}
+
+.small-heading {
+    color: #c17b9b;
+    letter-spacing: 2px;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+
+/* Floating hearts */
+
+.floating-heart {
+    position: fixed;
+    top: 15%;
+    left: 8%;
+    color: #e9a4bd;
+    font-size: 35px;
+    animation: float 4s infinite ease-in-out;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.heart-two {
+    top: 55%;
+    left: auto;
+    right: 8%;
+    animation-delay: 1s;
+}
+
+.heart-three {
+    top: 85%;
+    left: 15%;
+    animation-delay: 2s;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+
+/* Homepage */
+
+.hero {
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 20px;
+    background:
+        radial-gradient(circle at top left, #ffe0eb, transparent 40%),
+        linear-gradient(135deg, #fff0f5, #fce4ec);
+}
+
+.hero h1 {
+    font-size: clamp(35px, 7vw, 65px);
+    color: #b65f83;
+    margin: 20px 0;
+}
+
+.hero-text {
+    max-width: 500px;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.main-button {
+    display: inline-block;
+    border: none;
+    background: #d989aa;
+    color: white;
+    padding: 13px 28px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.main-button:hover {
+    background: #bd668c;
+    transform: translateY(-3px);
+}
+
+
+/* Anniversary */
+
+.anniversary {
+    background: #fff9fa;
+}
+
+.section-card {
+    max-width: 600px;
+    margin: auto;
+    background: #fce7ee;
+    border: 2px dashed #dba0b8;
+    border-radius: 25px;
+    padding: 40px 25px;
+    box-shadow: 5px 7px 15px #00000010;
+}
+
+.section-card h2 {
+    font-size: 32px;
+    margin: 12px;
+    color: #b65f83;
+}
+
+.section-card h3 {
+    font-size: 25px;
+    color: #d27c9e;
+    margin-bottom: 15px;
+}
+
+.section-card p {
+    line-height: 1.8;
+}
+
+.decoration {
+    font-size: 25px;
+}
+
+
+/* Photo album */
+
+.memories {
+    background: #fff1f5;
+}
+
+.memories h2,
+.love-notes h2,
+.letter-section h2 {
+    font-size: 36px;
+    color: #b65f83;
+    margin: 12px 0;
+}
+
+.section-description {
+    margin: 12px 0 30px;
+}
+
+
+/* Album cover */
+
+.album-cover {
+    max-width: 330px;
+    min-height: 280px;
+    margin: 30px auto;
+    padding: 35px 20px;
+    background: #f6d8e4;
+    border: 3px dashed #ce86a5;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 7px 8px 18px #00000015;
+    position: relative;
+    transition: 0.3s;
+}
+
+.album-cover:hover {
+    transform: rotate(-2deg) scale(1.04);
+}
+
+.album-ribbon {
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    font-size: 30px;
+    color: #b65f83;
+}
+
+.album-icon {
+    font-size: 65px;
+    margin: 20px;
+}
+
+.album-cover h3 {
+    color: #a34d73;
+    font-size: 25px;
+    margin: 10px;
+}
+
+.album-cover p {
+    margin: 8px;
+}
+
+.album-cover span {
+    font-size: 12px;
+    color: #a66a83;
+}
+
+
+/* Album viewer */
+
+.album-viewer {
+    display: none;
+    position: relative;
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 55px 20px 35px;
+    background: #fce5ed;
+    border: 2px solid #e5b0c4;
+    border-radius: 22px;
+    box-shadow: 5px 8px 20px #00000015;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.album-viewer.active {
+    display: flex;
+}
+
+.album-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.photo-frame {
+    background: white;
+    padding: 12px 12px 18px;
+    box-shadow: 0 4px 15px #00000020;
+    border-radius: 5px;
+}
+
+.photo-frame img {
+    display: block;
+    width: 100%;
+    height: 380px;
+    object-fit: contain;
+    border-radius: 4px;
+    touch-action: pan-y;
+}
+
+#albumCaption {
+    margin: 15px 0 8px;
+    color: #a34d73;
+    font-size: 14px;
+}
+
+#photoCounter {
+    font-size: 12px;
+    color: #a66a83;
+}
+
+.album-arrow {
+    background: #d989aa;
+    border: none;
+    color: white;
+    font-size: 17px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: 0.3s;
+}
+
+.album-arrow:hover {
+    background: #b65f83;
+    transform: scale(1.1);
+}
+
+.close-album {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    border: none;
+    background: transparent;
+    color: #a34d73;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.swipe-hint {
+    color: #a66a83;
+    font-size: 12px;
+    margin-top: 15px;
+}
+
+
+/* Love notes */
+
+.love-notes {
+    background: #fff9fa;
+}
+
+.notes-container {
+    max-width: 950px;
+    margin: 35px auto 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.note {
+    background: #fce5ed;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 3px 5px 12px #00000010;
+    transform: rotate(-1deg);
+    transition: 0.3s;
+}
+
+.note:nth-child(even) {
+    transform: rotate(1deg);
+    background: #fff0d9;
+}
+
+.note:hover {
+    transform: translateY(-5px);
+}
+
+.note span {
+    font-size: 30px;
+}
+
+.note p {
+    margin-top: 10px;
+    line-height: 1.7;
+}
+
+
+/* Letter */
+
+.letter-section {
+    background: #fff1f5;
+}
+
+.letter {
+    max-width: 650px;
+    margin: 30px auto;
+    background: #fffdf8;
+    padding: 35px;
+    text-align: left;
+    border: 1px solid #ead5d9;
+    box-shadow: 5px 7px 18px #00000012;
+    line-height: 2;
+    transform: rotate(-1deg);
+}
+
+.letter-top {
+    text-align: center;
+    color: #c17b9b;
+    margin-bottom: 20px;
+}
+
+.letter p {
+    margin-bottom: 15px;
+}
+
+.letter-ending {
+    text-align: right;
+    color: #b65f83;
+    font-family: 'Pacifico', cursive;
+}
+
+
+/* Surprise */
+
+.surprise-section {
+    background: #fce5ed;
+}
+
+.surprise-section h2 {
+    color: #b65f83;
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.surprise-section p {
+    margin-bottom: 20px;
+}
+
+.surprise-message {
+    display: none;
+    max-width: 500px;
+    margin: 25px auto;
+    padding: 25px;
+    background: #fff9fa;
+    border-radius: 18px;
+    line-height: 1.8;
+    border: 2px dashed #dba0b8;
+}
+
+.surprise-message.show {
+    display: block;
+    animation: appear 0.6s ease;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Footer */
+
+footer {
+    background: #d989aa;
+    color: white;
+    text-align: center;
+    padding: 25px 15px;
+    font-size: 13px;
+    line-height: 2;
+}
+
+
+/* Mobile responsive */
+
+@media (max-width: 600px) {
+
+    section {
+        padding: 50px 15px;
+    }
+
+    .hero {
+        min-height: 80vh;
+    }
+
+    .hero h1 {
+        font-size: 38px;
+    }
+
+    .notes-container {
+        grid-template-columns: 1fr;
+    }
+
+    .album-viewer {
+        padding: 55px 8px 35px;
+        gap: 6px;
+    }
+
+    .photo-frame img {
+        height: 300px;
+    }
+
+    .album-arrow {
+        width: 32px;
+        height: 32px;
+        font-size: 13px;
+    }
+
+    .letter {
+        padding: 25px 20px;
+    }
+
+    .memories h2,
+    .love-notes h2,
+    .letter-section h2 {
+        font-size: 29px;
+    }
+}
